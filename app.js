@@ -1,1 +1,1 @@
-alert('hi');
+const x // constant
