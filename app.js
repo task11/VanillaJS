@@ -1,14 +1,3 @@
-const player = {
-  name: "nico",
-  sayHello: function () {
-    console.log("hello");
-  },
-}
+const title = document.getElementById("title");
 
-player.sayHello();
-
-const a = parseInt("5") + 3;
-const b = "aa"
-console.log(isNaN(a));
-
-console.log(isNaN(b));
+title.innerText = "zzz"
