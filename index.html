@@ -3,18 +3,72 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>HimanJungman</title>
+  <title>Mouse Animation</title>
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      background-color: #3d5a80;
+    }
+
+    @keyframes blink-effect {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* .blink {
+      animation: blink-effect 1s step-end infinite;
+    } */
+
+
+    .circle {
+      width: 20px;
+      height: 20px;
+      background: #ea2027;
+      position: relative;
+      transform: rotate(45deg);
+    }
+
+    .circle::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: -50%;
+      border-radius: 50%;
+      background: #ea2027;
+    }
+
+    .circle::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: -50%;
+      border-radius: 50%;
+      border-color: black;
+      background: #ea2027;
+    }
+  </style>
 </head>
 
 <body>
-  <form id="login-form">
-    <input required minlength="15" type="text" placeholder="What is your name?" />
-    <button>Log In</button>
-  </form>
-  <script src="app.js"></script>
+  <div class="circle blink"></div>
+  <script>
+    const circle = document.querySelector(".circle");
+
+    document.addEventListener("mousemove", (e) => {
+      const mouseX = e.clientX - 30;
+      console.log(mouseX);
+      const mouseY = e.clientY + 30;
+      circle.style.left = mouseX + 'px';
+      circle.style.top = mouseY + 'px';
+    });
+  </script>
 </body>
 
 </html>

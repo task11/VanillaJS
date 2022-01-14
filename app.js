@@ -1,11 +1,8 @@
-const loginInput = document.querySelector("#login-form input");
-const loginButton = document.querySelector("#login-form button");
+const circle = document.querySelector(".circle");
 
-function onLoginBtnClick() {
-  const username = loginInput.value;
-
-
-}
-
-loginButton.addEventListener("click", onLoginBtnClick)
-
+document.addEventListener("mousemove", (e) => {
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+  circle.style.left = mouseX + 'px';
+  circle.style.top = mouseY + 'px';
+});
