@@ -15,3 +15,8 @@
   + Pagenation 기능 구현
 
 ---
+
+
+### Etc. 공통 Utils
+
+> Font & CSS style initializing
