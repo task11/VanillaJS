@@ -1,5 +1,5 @@
 body {
-  background-color: #a7cfff;
+  background-color: rgb(126, 197, 126);
   color: #555555;
 }
 
@@ -29,7 +29,8 @@ button > i {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 6px 6px 16px #91bff6;
+  box-shadow: 6px 6px 16px rgb(92, 148, 92);
+  border-radius: 20px;
 }
 
 h2 {
@@ -61,7 +62,7 @@ h2 {
 }
 
 .todo_submit_button {
-  background-color: #9dc0e8;
+  background-color: rgb(159, 214, 159);
   color: #fff;
   width: 80px;
   margin-left: 12px;
@@ -122,7 +123,7 @@ h2 {
 }
 
 .item_buttons > button:first-child {
-  background-color: #bad4f5;
+  background-color: rgb(177, 230, 177);
   margin-right: 8px;
 }
 

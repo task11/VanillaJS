@@ -2,7 +2,7 @@
 
 > Vanilla JS로 To-do List 구현하기
 
-- 투두-리스트 구현
+- 투두-리스트 구현 (CRUD)
 - json-server를 활용해서 로컬에 Mock REST API 구축 및 연동
 - 기본적인 데이터 처리인 생성, 읽기, 수정, 삭제(CRUD)를 구현
 - Pagenation 적용
