@@ -166,6 +166,24 @@
       })
   }
 
+  const deleteTodo = (e) => {
+    if (!e.target.classList.contains('todo_remove_button')) return
+
+    const $item = e.target.closest('.item');
+    const id = $item.dataset.id;
+    const confirm = window.confirm('Are you sure you want to delete?');
+
+    if (confirm) {
+      fetch(`${TODO_URL}/${id}`, {
+        method: 'DELETE',
+      })
+        .then(getTodos)
+        .catch((e) => {
+          console.error(e);
+        })
+    } else return;
+  }
+
 
   const init = () => {
 
