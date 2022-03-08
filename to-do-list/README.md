@@ -86,3 +86,10 @@ GET /posts?_page=7&_limit=20
 
 
 (https://github.com/typicode/json-server)[https://github.com/typicode/json-server]
+
+
+---
+
+## Result
+
+![todo-list](https://user-images.githubusercontent.com/89209626/157178857-c87821ea-9e07-41ca-ac6c-75ff25c32777.gif)
