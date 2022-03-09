@@ -4,7 +4,7 @@ export default class BaseballGame {
     this.CORRECT = `🎉정답을 맞추셨습니다.🎉 \n 게임을 새로 시작하시겠습니까?`;
     this.getRandomNumber();
     this.getSelector('.game-form').addEventListener('submit', (e) => this.clickSubmit(e, this._computerInput));
-    console.log(this._computerInput);
+    this.getSelector('#game-restart-button').addEventListener('click', this.restart);
   }
 
   play(computerInputNumbers, userInputNumbers) {
@@ -90,6 +90,10 @@ export default class BaseballGame {
       errorFlag = true;
     }
     return errorFlag;
+  }
+
+  restart(e) {
+    location.reload();
   }
 }
 
