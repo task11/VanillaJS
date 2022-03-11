@@ -98,7 +98,3 @@ export default class BaseballGame {
 }
 
 new BaseballGame();
-
-// const game = new BaseballGame();
-// // 예시
-// game.play(123, 326); // '낫싱'
