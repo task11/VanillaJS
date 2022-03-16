@@ -1,4 +1,57 @@
-body {
-  background-color: rgb(126, 159, 197);
-  color: #555555;
+.body{
+  display: flex;
 }
+
+.wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  box-shadow: 6px 6px 16px blanchedalmond;
+  background-color: blanchedalmond;
+  padding: 50px;
+}
+
+.title{
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align:center;
+  width: 400px;
+  padding: 10px;
+  color:yellowgreen;
+  background-color: white;
+  border-radius: 20px;
+  border: solid white 2px;
+  }
+  
+.app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  
+}
+
+input[type="button"] {
+  background-color:yellowgreen;
+  color: black;
+  border: solid white 2px;
+  padding: 8px 44px;
+  border-radius: 20px;
+  width:100%
+  }
+
+
+
+input[type="text"]{
+  background-color:rgb(211, 211, 211);
+  border: solid white 2px;
+  border-radius: 20px;
+  padding: 8px 44px;
+  width:100%
+  }
