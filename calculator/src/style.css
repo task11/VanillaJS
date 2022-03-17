@@ -45,7 +45,13 @@ input[type="button"] {
   border-radius: 20px;
   width:100%
   }
-
+  input[type="submit"]{
+    background-color:rgb(211, 211, 211);
+    border: solid white 2px;
+    border-radius: 20px;
+    padding: 8px 44px;
+    width:100%
+    }
 
 
 input[type="text"]{
@@ -55,3 +61,4 @@ input[type="text"]{
   padding: 8px 44px;
   width:100%
   }
+
