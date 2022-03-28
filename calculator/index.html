@@ -15,34 +15,69 @@
     <div class="title">Vanilla Calculator</div>
     <div class="app">
       <form class="calc-form">
-        <table border="1">
+        <div>
+          <input class="user-input" type="text" placeholder="0" />
+        </div>
+
+        <table>
           <tr>
-            <td colspan="3"><input class="user-input" type="text" placeholder="숫자를 입력하세요" /></td>
-            <td><input type="button" value="c" /> </td>
+            <div class="btn operator" type="button">c</div>
           </tr>
           <tr>
-            <td><input type="button" value="1" /> </td>
-            <td><input type="button" value="2" /> </td>
-            <td><input type="button" value="3" /> </td>
-            <td><input type="button" value="/" /> </td>
+            <td>
+              <div class="btn number">1</div>
+            </td>
+            <td>
+              <div class="btn number">2</div>
+            </td>
+            <td>
+              <div class="btn number">3</div>
+            </td>
+            <td>
+              <div class="btn operator">/</div>
+            </td>
           </tr>
           <tr>
-            <td><input type="button" value="4" /> </td>
-            <td><input type="button" value="5" /> </td>
-            <td><input type="button" value="6" /> </td>
-            <td><input type="button" value="-" /> </td>
+            <td>
+              <div class="btn number">4</div>
+            </td>
+            <td>
+              <div class="btn number">5</div>
+            </td>
+            <td>
+              <div class="btn number">6</div>
+            </td>
+            <td>
+              <div class="btn operator">-</div>
+            </td>
           </tr>
           <tr>
-            <td><input type="button" value="7" /> </td>
-            <td><input type="button" value="8" /> </td>
-            <td><input type="button" value="9" /> </td>
-            <td><input type="button" value="+" /> </td>
+            <td>
+              <div class="btn number">7</div>
+            </td>
+            <td>
+              <div class="btn number">8</div>
+            </td>
+            <td>
+              <div class="btn number">9</div>
+            </td>
+            <td>
+              <div class="btn operator">+</div>
+            </td>
           </tr>
           <tr>
-            <td><input type="button" value="." /> </td>
-            <td><input type="button" value="0" /> </td>
-            <td><input type="submit" value="=" /> </td>
-            <td><input type="button" value="*" /> </td>
+            <td>
+              <div class="btn operator">.</div>
+            </td>
+            <td>
+              <div class="btn number">0</div>
+            </td>
+            <td>
+              <div class="btn operator" type="submit">=</div>
+            </td>
+            <td>
+              <div class="btn operator">*</div>
+            </td>
           </tr>
         </table>
       </form>

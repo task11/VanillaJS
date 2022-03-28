@@ -11,19 +11,19 @@
   left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
-  box-shadow: 6px 6px 16px blanchedalmond;
-  background-color: blanchedalmond;
+  
+  
   padding: 50px;
 }
 
 .title{
-  margin-bottom: 10px;
-  font-size: 18px;
+  margin-bottom: 30px;
+  font-size: 48px;
   font-weight: bold;
   text-align:center;
-  width: 400px;
+  width: 500px;
   padding: 10px;
-  color:yellowgreen;
+  color:black;
   background-color: white;
   border-radius: 20px;
   border: solid white 2px;
@@ -33,32 +33,52 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
+  width: 1000px;
   
 }
 
-input[type="button"] {
-  background-color:yellowgreen;
-  color: black;
-  border: solid white 2px;
-  padding: 8px 44px;
-  border-radius: 20px;
-  width:100%
-  }
-  input[type="submit"]{
-    background-color:rgb(211, 211, 211);
-    border: solid white 2px;
-    border-radius: 20px;
-    padding: 8px 44px;
-    width:100%
-    }
+.calc-form{
+  width: 700px;
+}
 
+table{
+  width: 100%;
+}
 
 input[type="text"]{
-  background-color:rgb(211, 211, 211);
-  border: solid white 2px;
-  border-radius: 20px;
-  padding: 8px 44px;
-  width:100%
-  }
+  width: 98.5%;
+  height: 72px;
+  border: 1px solid #ebebeb;
+  font-size: 21px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px 14px 0 10px;
+  box-sizing: border-box;
+  direction: rtl;
+}
 
+.btn{
+  color: black;
+  line-height: 34px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: #4285f4;
+  border: 1px solid #4285f4;
+  transition-duration: 500ms;
+}
+
+.number {
+  background:#f1f3f4;
+  border: solid #f1f3f4 1px;
+}
+
+.operator {
+  background: #dadce0;
+  border: 1px solid #dadce0; 
+}
