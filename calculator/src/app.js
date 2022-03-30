@@ -31,7 +31,7 @@
     }
   }
 
-  const calculation = (e) => {
+  const clickCalculation = (e) => {
     e.preventDefault();
     const item = e.target.innerText;
     const numberFlag = e.target.classList.contains('number');
@@ -47,8 +47,6 @@
       $userInput.value = '';
       calcMod = false;
     }
-
-    if ($userInput.value.includes('.') && item === '.') return;
 
     if (!numberFlag) {
       operation($userInput.value);
@@ -66,10 +64,8 @@
   }
 
   const init = () => {
-
     // $userInput.addEventListener('change', setInput);
-    $clacForm.addEventListener('click', calculation);
-
+    $clacForm.addEventListener('click', clickCalculation);
   }
 
   init();
