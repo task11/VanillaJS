@@ -5,16 +5,21 @@
   };
   const $clacForm = get(".calc-form");
   const $userInput = get(".user-input");
+  const $calcHistory = get(".calc-history");
+  let historyStack = "";
   let tmpOperand;
   let tmpOperation;
   let calcMod = false;
+
+  const round = (number) => {
+    return Math.round((number + Number.EPSILON) * 100) / 100;
+  }
 
 
 
   const operation = (userInput) => {
     const firstNum = parseFloat(tmpOperand);
     const lastNum = parseFloat(userInput);
-
     switch (tmpOperation) {
       case '+':
         $userInput.value = firstNum + lastNum;
@@ -26,9 +31,12 @@
         $userInput.value = firstNum * lastNum;
         break;
       case '/':
-        $userInput.value = firstNum / lastNum;
+        $userInput.value = round(firstNum / lastNum);
         break;
     }
+
+
+    $calcHistory.innerText += historyStack;
   }
 
   const clickCalculation = (e) => {
@@ -59,6 +67,7 @@
         tmpOperation = item;
         calcMod = true;
       }
+      console.log(historyStack);
     } else $userInput.value += item;
 
   }
