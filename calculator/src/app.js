@@ -34,9 +34,6 @@
         $userInput.value = round(firstNum / lastNum);
         break;
     }
-
-
-    $calcHistory.innerText += historyStack;
   }
 
   const clickCalculation = (e) => {
