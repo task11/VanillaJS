@@ -32,17 +32,15 @@
 
 ---
 
-## 🧮 Vanilla Calculator (진행 중)
+## 🧮 Vanilla Calculator
 
 > 바닐라 자바스크립트로 계산기 구현
   + 사칙연산 구현
-  + 삼각함수, 로그 로직 구현
   + 초기화 기능 구현
-  + history 기능 구현
 
 ### 📄 프로젝트 문서 & 회고
 
-문서 링크 👉 [Vanilla Calculator project docs]()
+문서 링크 👉 [Vanilla Calculator project docs ... 작성 중]()
 
 ---
 
