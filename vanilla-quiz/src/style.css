@@ -1,0 +1,72 @@
+/* #FFE162 */
+/* #FF6464 */
+/* #91C483 */
+/* #EEEEEE */
+
+body {
+  font-family: 'Black Han Sans', sans-serif;
+  background-color: #EEEEEE;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
+
+.container-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-start .btn-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: #FF6464;
+  border: solid 1px #FFE162;
+  border-radius: 50%;
+  font-size: 50px;
+  line-height: 0.9;
+  font-weight: bold;
+  color: #EEEEEE;
+  cursor: pointer;
+  transition: all 1000ms ease;
+}
+
+.container-start .btn-play:before {
+  content: '🍦 quiz';
+}
+
+.container-start .btn-play:hover {
+  width: 300px;
+  height: 300px;
+  font-size: 100px;
+  background-color: #FFE162;
+  color: black;
+}
+
+.container-start .btn-play:hover~.comment-play {
+  display: none;
+}
+
+.container-start .comment-play {
+  margin-top: 15px;
+}
+
+.container-start .btn-play:hover:before {
+  content: '🍦 start';
+}
+
+.container-quiz {
+  display: none;
+}
