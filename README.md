@@ -40,7 +40,20 @@
 
 ### 📄 프로젝트 문서 & 회고
 
-문서 링크 👉 [Vanilla Calculator project docs ... 작성 중]()
+문서 링크 👉 [Vanilla Calculator project docs](calculator/docs/README.md)
+
+---
+
+## 💡 Vanilla Quiz
+
+> 바닐라 자바스크립트로 퀴즈 게임 구현
+  + 퀴즈의 정답 여부에 따라 Score 변동
+  + 퀴즈를 풀 때 Progress bar 업데이트
+  + 마지막 퀴즈 종료 후 점수 출력
+
+### 📄 프로젝트 문서 & 회고
+
+문서 링크 👉 [Vanilla Quiz project docs](vanilla-quiz/docs/README.md)
 
 ---
 
