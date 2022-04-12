@@ -2,6 +2,8 @@
 
 > 바닐라 자바스크립트 프로젝트 관리용 레파지토리
 
+**Landig Page** 👉 [click here](https://task11.github.io/minirepo-vanilla-javascript-frontend/)
+
 ---
 
 ## 📝 To-do List 구현
