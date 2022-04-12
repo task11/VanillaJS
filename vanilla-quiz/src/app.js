@@ -107,6 +107,7 @@ const data = [
     const $playBtn = get(".btn-play");
     const $conStart = get(".container-start");
     const $conQuiz = get(".container-quiz");
+    const $conResult = get(".container-result");
     const $restartBtn = get(".btn-restart");
     const $quizForm = get(".quiz-form");
     const $progess = get("progress");
@@ -114,23 +115,17 @@ const data = [
 
 
     const togglePlay = () => {
-      if (!isPlay) {
-        $conQuiz.style.display = "block";
-        $conStart.style.display = "none";
-        isPlay = true;
-      } else {
-        $conQuiz.style.display = "none";
-        $conStart.style.display = "flex";
-        isPlay = false;
-      }
+      $conQuiz.style.display = "block";
+      $conStart.style.display = "none";
+      isPlay = true;
     }
 
     const getQuiz = (stage) => {
       // API Fetch (Mock API로 대체)
       let template = `
-      <div class="quiz-title">${data[stage].content}</div>
-      <div class="quiz-count">${sol} / ${data.length}</div>
-  `
+          <div class="quiz-title">${data[stage].content}</div>
+          
+      `
       for (let i = 0; i < data[stage].answer.length; i++) {
         template += `<button type="submit" class="quiz-answer stage-${stage}" id=${data[stage].answer[i].id}>${data[stage].answer[i].solution}</button>`
       }
@@ -144,18 +139,41 @@ const data = [
       const seletAnswer = parseInt(e.target.id);
       const correctAnswer = data[stage].result;
 
-
-
       if (seletAnswer === correctAnswer) {
         sol++;
       }
       stage++;
       updateProgress(stage);
+
+      if (stage === data.length) {
+        return gameEnd();
+      }
+
       getQuiz(stage);
     }
 
     const updateProgress = (stage) => {
       $progess.value = stage * (100 / data.length);
+    }
+
+    const gameEnd = () => {
+      const $quizResult = get(".quiz-result");
+      let comment = "";
+      if (sol === data.length) {
+        comment = "🎉 만점 🎉"
+      } else {
+        comment = "😭 까비 😭"
+      }
+
+      $quizResult.innerHTML = `
+      <span class="result-comment">${comment}</span>
+      <span class="result-score">${sol} / ${data.length}</span>
+      `
+      $conResult.style.display = "flex";
+    }
+
+    const restartGame = () => {
+      window.location.reload();
     }
 
 
@@ -167,7 +185,7 @@ const data = [
       })
       $quizForm.addEventListener('click', getAnswer)
       $playBtn.addEventListener('click', togglePlay);
-      $restartBtn.addEventListener('click', togglePlay);
+      $restartBtn.addEventListener('click', restartGame);
     };
 
     init();
