@@ -69,15 +69,45 @@ body {
 
 .container-quiz {
   display: none;
-
 }
 
 .container-quiz .main-quiz {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.container-quiz .main-quiz .quiz-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 800px;
-  height: 500px;
+  height: 600px;
   background-color: #FFE162;
+  border: 1px solid #FFE162;
+  border-radius: 20px;
+}
+
+.container-quiz .main-quiz .quiz-form .quiz-title {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.container-quiz .main-quiz .quiz-form .quiz-answer {
+  width: 80%;
+  height: 14%;
+  margin: 5px;
+  font-size: 30px;
+  font-weight: bold;
   border: 1px solid #FF6464;
   border-radius: 20px;
+  background-color: #FF6464;
+}
 
+.container-quiz .main-quiz .quiz-form .quiz-answer:hover {
+  box-shadow: 5px 5px 5px rgb(71, 71, 71);
 }
