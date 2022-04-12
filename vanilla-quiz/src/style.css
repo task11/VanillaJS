@@ -69,4 +69,15 @@ body {
 
 .container-quiz {
   display: none;
+
+}
+
+.container-quiz .main-quiz {
+  display: flex;
+  width: 800px;
+  height: 500px;
+  background-color: #FFE162;
+  border: 1px solid #FF6464;
+  border-radius: 20px;
+
 }
