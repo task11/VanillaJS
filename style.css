@@ -28,6 +28,7 @@
 .container .container-btn {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -50,4 +51,42 @@
 
 .btn-link:hover {
   box-shadow: 0px 0px 0px 5px #A66615;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 600px;
+    height: 600px;
+  }
+
+  .container .container-title {
+    display: flex;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .btn-link {
+    width: 150px;
+    line-height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 400px;
+    height: 400px;
+  }
+
+  .container .container-title {
+    display: flex;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .btn-link {
+    width: 120px;
+    line-height: 30px;
+    font-size: 15px;
+  }
 }

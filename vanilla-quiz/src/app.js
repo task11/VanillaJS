@@ -111,7 +111,6 @@ const data = [
     const $restartBtn = get(".btn-restart");
     const $quizForm = get(".quiz-form");
     const $progess = get("progress");
-    let isPlay = false;
 
 
     const togglePlay = () => {
