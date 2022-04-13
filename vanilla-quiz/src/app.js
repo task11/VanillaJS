@@ -148,7 +148,9 @@ const data = [
         return gameEnd();
       }
 
-      getQuiz(stage);
+      e.target.style.backgroundColor = "#91C483"
+      e.target.style.border = "1px solid #91C483"
+      setTimeout(() => { getQuiz(stage) }, 1000);
     }
 
     const updateProgress = (stage) => {

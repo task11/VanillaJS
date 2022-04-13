@@ -134,6 +134,7 @@ body {
   border: 1px solid #FF6464;
   border-radius: 20px;
   background-color: #FF6464;
+  transition: background-color 1s ease;
 }
 
 .container-quiz .main-quiz .quiz-form .quiz-answer:hover {
@@ -163,6 +164,8 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
+
+
 
 .container-quiz .container-result .quiz-result .result-comment {
   font-size: 50px;
