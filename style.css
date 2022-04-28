@@ -90,3 +90,10 @@
     font-size: 15px;
   }
 }
+
+.container-edit {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  cursor: pointer;
+}
