@@ -1,4 +1,4 @@
-import { GameStatus } from "./utils/util.js";
+import { GameStatus, wordToMap } from "./utils/util.js";
 
 export function checkGameStatus(status, charsLeft, chancesLeft, timer) {
   if (charsLeft === 0) {
@@ -33,8 +33,18 @@ export function setWordLoading(state, wordLoading) {
 }
 
 export function initializeState(state, word) {
+  const charMap = wordToMap(word);
+  const wordArr = Array
+    .from({ length: word.length })
+    .map((_item, idx) => word[idx] === " " ? " " : "*");
+  const charsLeft = Object.keys(charMap).length - 1;
 
-  return state;
+  return {
+    ...state,
+    charMap,
+    wordArr,
+    charsLeft
+  };
 }
 
 export function selectCharacter(state, enteredCharacter) {
