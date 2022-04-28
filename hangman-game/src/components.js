@@ -21,7 +21,7 @@ export const HangmanImage = (chancesLeft, images) => {
   });
 };
 
-export const Word = (gameStatus, wordArr) => {
+export const Word = (gameStatus, wordArr, chancesLeft) => {
   const container = id("word");
   container.innerHTML = "";
 
@@ -30,8 +30,9 @@ export const Word = (gameStatus, wordArr) => {
 
   if (isGameEnded(gameStatus)) {
     const message = h('p');
-    message.innerText = generateGameMessage(GameStatus);
-    wordText.appendChild(message);
+    message.innerText = generateGameMessage(gameStatus, chancesLeft);
+    container.appendChild(message);
+    return;
   }
 
   const spans = wordArr.map(ch => {
@@ -47,7 +48,7 @@ export const Word = (gameStatus, wordArr) => {
   container.appendChild(wordText);
 };
 
-export const KeyboardLayout = () => {
+export const KeyboardLayout = (onClickItem, gameStatus, enteredCharacters) => {
   const container = id("keyboard-layout");
   container.innerHTML = "";
 
@@ -60,10 +61,10 @@ export const KeyboardLayout = () => {
       const li = h("li");
       const button = h("button");
 
-      // 버튼을 누를 때, 선택한 문자를 함수로 전달한다.
-      // 게임이 종료되었거나, 이미 누른 문자라면 해당 버튼을 누르지 못하게 한다.
       button.classList.add("keyboard-button");
       button.innerText = c;
+      button.addEventListener('click', () => onClickItem(c));
+      button.disabled = isGameEnded(gameStatus) || enteredCharacters[c];
 
       li.appendChild(button);
       return li;
@@ -94,9 +95,14 @@ export const ButtonBox = (wordLoading, gameStatus, onClickStart, chancesLeft, ti
 };
 
 export function render(state, onClickItem, onClickStart, imageSources) {
-  KeyboardLayout();
-  Word(state.gameStatus, state.wordArr);
-  ButtonBox(state.wordLoading, state.gameStatus, onClickStart, state.chancesLeft, state.timer);
+  KeyboardLayout(onClickItem, state.gameStatus, state.enteredCharacters);
+  Word(state.gameStatus, state.wordArr, state.chancesLeft);
+  ButtonBox(state.wordLoading,
+    state.gameStatus,
+    onClickStart,
+    state.chancesLeft,
+    state.timer
+  );
   HangmanImage(state.chancesLeft, imageSources);
 }
 

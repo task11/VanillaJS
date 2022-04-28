@@ -1,12 +1,12 @@
 import { GameStatus, wordToMap } from "./utils/util.js";
 
-export function checkGameStatus(status, charsLeft, chancesLeft, timer) {
-  if (charsLeft === 0) {
-    return GameStatus.WIN;
-  } else if (chancesLeft === 0 || timer === 0) {
-    return GameStatus.LOSE;
+export function checkGameStatus(state) {
+  if (state.charsLeft === 0) {
+    return { ...state, gameStatus: GameStatus.WIN };
+  } else if (state.chancesLeft === 0 || state.timer === 0) {
+    return { ...state, gameStatus: GameStatus.LOSE };
   }
-  return status;
+  return state;
 }
 
 export const initialState = {
@@ -48,14 +48,35 @@ export function initializeState(state, word) {
 }
 
 export function selectCharacter(state, enteredCharacter) {
-  // 입력한 알파벳은 enteredCharacters에 저장된다.
-  // 입력한 알파벳이 charMap에 없다면,
-  // 기회가 한번 사라지게 된다. gameStatus 를 체크한다.
-  //
-  // 입력한 알파벳이 charMap에 존재하면,
-  // wordArr의 특정 알파벳이 "*"가 아닌 해당 알파벳으로 바뀐다.
-  // charMap을 이용한다.
-  // charsLeft는 줄어든다.
-  // gameStatus를 체크한다.
-  return state;
+  const enteredCharacters = {
+    ...state.enteredCharacters,
+    [enteredCharacter]: true,
+  };
+
+  if (!state.charMap[enteredCharacter]) {
+    const chancesLeft = state.chancesLeft - 1;
+    const gameStatus = chancesLeft === 0 ? GameStatus.LOSE : state.gameStatus;
+
+    return {
+      ...state,
+      chancesLeft,
+      gameStatus,
+      enteredCharacters,
+    };
+  }
+
+  const wordArr = [...state.wordArr];
+  state.charMap[enteredCharacter].forEach((i) => {
+    wordArr[i] = enteredCharacter;
+  });
+  const charsLeft = state.charsLeft - 1;
+  const gameStatus = charsLeft === 0 ? GameStatus.WIN : state.gameStatus;
+
+  return {
+    ...state,
+    wordArr,
+    charsLeft,
+    gameStatus,
+    enteredCharacters,
+  };
 }

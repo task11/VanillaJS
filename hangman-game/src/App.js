@@ -23,11 +23,12 @@ const App = () => {
   }
 
   function onClickItem(c) {
-    // 알파벳 하나를 선택하면 호출되는 함수.
     changeState((state) => selectCharacter(state, c));
+    changeState(state => checkGameStatus(state));
   }
 
   function onClickStart() {
+    if (state.wordLoading) return;
 
     changeState(state => setWordLoading(state, true));
 
