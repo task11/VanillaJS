@@ -28,7 +28,6 @@ const App = () => {
 
   function onClickItem(c) {
     changeState((state) => selectCharacter(state, c));
-    changeState(state => checkGameStatus(state));
   }
 
   function onClickStart() {
