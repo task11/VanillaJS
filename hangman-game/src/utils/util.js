@@ -14,3 +14,15 @@ export function fetchWord() {
     .then((r) => r.json())
     .then((data) => data.puzzle);
 }
+
+export function generateGameMessage(gameStatus) {
+  if (gameStatus === GameStatus.LOSE) {
+    return "게임에서 졌습니다. 다시 시작하세요.";
+  } else if (gameStatus === GameStatus.WIN) {
+    return "이겼습니다!!";
+  } else if (gameStatus === GameStatus.READY) {
+    return "게임을 시작하세요.";
+  }
+
+  return "Loding..";
+}

@@ -33,12 +33,7 @@ export function setWordLoading(state, wordLoading) {
 }
 
 export function initializeState(state, word) {
-  // 단어를 charMap으로 변환한다.
-  // charMap은 단어의 각 알파벳에 해당하는 인덱스 배열이 들어있다.
-  // ex) ABC -> { A:[0], B:[1], C:[2] }
-  // 공백을 제외한 모든 알파벳을 "*"로 변환해 배열로 만든다.
-  // wordArr에 저장한다.
-  // charsLeft는 맞추어야 할 총 알파뱃의 개수를 저장한다.
+
   return state;
 }
 

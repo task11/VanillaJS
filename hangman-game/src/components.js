@@ -1,7 +1,7 @@
 import {
   GameStatus,
   isGameEnded,
-  //generateGameMessage,
+  generateGameMessage,
 } from "./utils/util.js";
 import { calculateImageSize } from './utils/image-util.js';
 import { h, id } from "./utils/dom.js";
@@ -21,24 +21,29 @@ export const HangmanImage = (chancesLeft, images) => {
   });
 };
 
-export const Word = () => {
+export const Word = (gameStatus, wordArr) => {
   const container = id("word");
   container.innerHTML = "";
 
   const wordText = h("div");
   wordText.classList.add("word-text");
-  const message = h('p');
-  message.innerText = "컴포넌트를 구현하세요.";
-  wordText.appendChild(message);
 
-  // 게임이 끝났다면, 게임이 끝났다는 메시지를 보여준다.
-  // 진행되고 있는 경우, `wordArr`를 이용해
-  // 각 글자를 보여준다.
+  if (isGameEnded(gameStatus)) {
+    const message = h('p');
+    message.innerText = generateGameMessage(GameStatus);
+    wordText.appendChild(message);
+  }
 
-  // wordText 안에 글자들을 구성한다.
-  // 공백을 제외한 글자들은 character 라는 클래스를 가진다.
-  // wordText 안에 들어간다.
+  const spans = wordArr.map(ch => {
+    const span = h("span");
+    if (ch !== " ") {
+      span.classList.add("character");
+    }
+    span.innerText = ch;
+    return span;
+  });
 
+  wordText.append(...spans);
   container.appendChild(wordText);
 };
 
