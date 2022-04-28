@@ -26,3 +26,14 @@ export function generateGameMessage(gameStatus) {
 
   return "Loding..";
 }
+
+export function wordToMap(word) {
+  return word
+    .toUpperCase()
+    .split("")
+    .reduce((map, ch, idx) => {
+      if (!map[ch]) map[ch] = [];
+      map[ch].push(idx);
+      return map;
+    });
+}
