@@ -68,7 +68,7 @@ export const KeyboardLayout = () => {
   container.appendChild(ul);
 };
 
-export const ButtonBox = () => {
+export const ButtonBox = (onClickStart) => {
   const container = id("button-box");
   container.innerHTML = "";
 
@@ -88,6 +88,7 @@ export const ButtonBox = () => {
   const button = h("button");
   button.classList.add("start-button");
   button.innerText = "START";
+  button.addEventListener('click', onClickStart);
 
   container.append(chances, timerText, button);
 };
@@ -95,7 +96,7 @@ export const ButtonBox = () => {
 export function render(state, onClickItem, onClickStart, imageSources) {
   KeyboardLayout();
   Word();
-  ButtonBox();
+  ButtonBox(onClickStart);
   HangmanImage(state.chancesLeft, imageSources);
 }
 
