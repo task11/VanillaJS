@@ -1,5 +1,4 @@
 import {
-  GameStatus,
   isGameEnded,
   generateGameMessage,
 } from "./utils/util.js";
@@ -49,13 +48,14 @@ export const Word = (gameStatus, wordArr, chancesLeft) => {
 };
 
 export const KeyboardLayout = (onClickItem, gameStatus, enteredCharacters) => {
+  const KEY_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const container = id("keyboard-layout");
   container.innerHTML = "";
 
   const ul = h("ul");
   ul.classList.add("keyboard-layout");
 
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  KEY_STRING
     .split("")
     .map((c) => {
       const li = h("li");

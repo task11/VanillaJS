@@ -40,10 +40,11 @@ export function initializeState(state, word) {
   const charsLeft = Object.keys(charMap).length - 1;
 
   return {
-    ...state,
+    ...initialState,
     charMap,
     wordArr,
-    charsLeft
+    charsLeft,
+    gameStatus: GameStatus.START
   };
 }
 
