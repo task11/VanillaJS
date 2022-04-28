@@ -6,10 +6,10 @@ import {
   selectCharacter,
   checkGameStatus,
   setWordLoading,
-} from "./state";
-import { render } from "./components";
-import { GameStatus, fetchWord, isGameEnded } from "./utils/util";
-import { fetchAllImages } from "./utils/image-util";
+} from "./state.js";
+import { render } from "./components.js";
+import { GameStatus, fetchWord, isGameEnded } from "./utils/util.js";
+import { fetchAllImages } from "./utils/image-util.js";
 
 const App = () => {
   let state = { ...initialState };

@@ -1,10 +1,10 @@
 import {
   GameStatus,
   isGameEnded,
-  generateGameMessage,
-} from "./utils/util";
-import { calculateImageSize } from './utils/image-util';
-import { h, id } from "./utils/dom";
+  //generateGameMessage,
+} from "./utils/util.js";
+import { calculateImageSize } from './utils/image-util.js';
+import { h, id } from "./utils/dom.js";
 
 export const HangmanImage = (chancesLeft, images) => {
   const container = id("hangman-image");

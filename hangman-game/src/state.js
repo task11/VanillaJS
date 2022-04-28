@@ -1,6 +1,6 @@
-import { GameStatus } from "./utils/util";
+import { GameStatus } from "./utils/util.js";
 
-function checkGameStatus(status, charsLeft, chancesLeft, timer) {
+export function checkGameStatus(status, charsLeft, chancesLeft, timer) {
   if (charsLeft === 0) {
     return GameStatus.WIN;
   } else if (chancesLeft === 0 || timer === 0) {
