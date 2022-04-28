@@ -1,4 +1,3 @@
-import "./app.css";
 import {
   initializeState,
   initialState,
@@ -7,10 +6,10 @@ import {
   selectCharacter,
   checkGameStatus,
   setWordLoading,
-} from "./state";
-import { render } from "./components";
-import { GameStatus, fetchWord, isGameEnded } from "./utils/utile";
-import { fetchAllImages } from "./image-util";
+} from "./state.js";
+import { render } from "./components.js";
+import { GameStatus, fetchWord, isGameEnded } from "./utils/util.js";
+import { fetchAllImages } from "./utils/image-util.js";
 
 const App = () => {
   let state = { ...initialState };

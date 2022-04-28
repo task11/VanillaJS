@@ -1,5 +1,5 @@
-import App from "./app";
-import "./index.css";
+import App from "./app.js";
+
 
 const run = () => {
   window.addEventListener("DOMContentLoaded", () => {
