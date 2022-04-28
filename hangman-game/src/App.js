@@ -28,6 +28,16 @@ const App = () => {
     changeState((state) => selectCharacter(state, c));
   }
 
+  function onClickStart() {
+    // 단어 로딩 시작시, wordLoading을 설정한다.
+    //
+    // 단어를 서버로부터 가져온다.
+    // 단어를 가져온 후에 인터벌을 등록한다.
+    // 인터벌은 1초마다 작동하며 게임이 끝나면 인터벌을 제거한다.
+    // 1초마다 timer를 감소하며 게임 상태를 체크한다.
+    //
+    // 타이머를 등록하고 게임을 시작한다.
+  }
 
   fetchAllImages().then((images) => {
     imageSources = images;
