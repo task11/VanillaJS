@@ -35,5 +35,5 @@ export function wordToMap(word) {
       if (!map[ch]) map[ch] = [];
       map[ch].push(idx);
       return map;
-    });
+    }, {});
 }

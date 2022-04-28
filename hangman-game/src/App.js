@@ -43,7 +43,7 @@ const App = () => {
         }, 1000);
 
         changeState(state => setWordLoading(state, false));
-        changeState(state => initialState(state, word));
+        changeState(state => initializeState(state, word));
         changeState(state => startGame(state));
       });
   }
