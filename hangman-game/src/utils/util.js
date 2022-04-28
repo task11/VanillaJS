@@ -14,3 +14,28 @@ export function fetchWord() {
     .then((r) => r.json())
     .then((data) => data.puzzle);
 }
+
+export function generateGameMessage(gameStatus, chancesLeft) {
+  if (gameStatus === GameStatus.START) {
+    return `남은 기회 : ${chancesLeft}`;
+  } else if (gameStatus === GameStatus.READY) {
+    return `게임을 시작하세요.`;
+  } else if (gameStatus === GameStatus.LOSE) {
+    return `게임에 졌습니다. 다시 시작하세요.`;
+  } else if (gameStatus === GameStatus.WIN) {
+    return `단어를 맞췄습니다! 다시 시작하세요.`;
+  }
+
+  return "";
+}
+
+export function wordToMap(word) {
+  return word
+    .toUpperCase()
+    .split("")
+    .reduce((map, ch, idx) => {
+      if (!map[ch]) map[ch] = [];
+      map[ch].push(idx);
+      return map;
+    }, {});
+}

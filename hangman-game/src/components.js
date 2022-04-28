@@ -1,7 +1,7 @@
 import {
   GameStatus,
   isGameEnded,
-  //generateGameMessage,
+  generateGameMessage,
 } from "./utils/util.js";
 import { calculateImageSize } from './utils/image-util.js';
 import { h, id } from "./utils/dom.js";
@@ -21,28 +21,34 @@ export const HangmanImage = (chancesLeft, images) => {
   });
 };
 
-export const Word = () => {
+export const Word = (gameStatus, wordArr, chancesLeft) => {
   const container = id("word");
   container.innerHTML = "";
 
   const wordText = h("div");
   wordText.classList.add("word-text");
-  const message = h('p');
-  message.innerText = "컴포넌트를 구현하세요.";
-  wordText.appendChild(message);
 
-  // 게임이 끝났다면, 게임이 끝났다는 메시지를 보여준다.
-  // 진행되고 있는 경우, `wordArr`를 이용해
-  // 각 글자를 보여준다.
+  if (isGameEnded(gameStatus)) {
+    const message = h('p');
+    message.innerText = generateGameMessage(gameStatus, chancesLeft);
+    container.appendChild(message);
+    return;
+  }
 
-  // wordText 안에 글자들을 구성한다.
-  // 공백을 제외한 글자들은 character 라는 클래스를 가진다.
-  // wordText 안에 들어간다.
+  const spans = wordArr.map(ch => {
+    const span = h("span");
+    if (ch !== " ") {
+      span.classList.add("character");
+    }
+    span.innerText = ch;
+    return span;
+  });
 
+  wordText.append(...spans);
   container.appendChild(wordText);
 };
 
-export const KeyboardLayout = () => {
+export const KeyboardLayout = (onClickItem, gameStatus, enteredCharacters) => {
   const container = id("keyboard-layout");
   container.innerHTML = "";
 
@@ -55,10 +61,10 @@ export const KeyboardLayout = () => {
       const li = h("li");
       const button = h("button");
 
-      // 버튼을 누를 때, 선택한 문자를 함수로 전달한다.
-      // 게임이 종료되었거나, 이미 누른 문자라면 해당 버튼을 누르지 못하게 한다.
       button.classList.add("keyboard-button");
       button.innerText = c;
+      button.addEventListener('click', () => onClickItem(c));
+      button.disabled = isGameEnded(gameStatus) || enteredCharacters[c];
 
       li.appendChild(button);
       return li;
@@ -68,34 +74,35 @@ export const KeyboardLayout = () => {
   container.appendChild(ul);
 };
 
-export const ButtonBox = () => {
+export const ButtonBox = (wordLoading, gameStatus, onClickStart, chancesLeft, timer) => {
   const container = id("button-box");
   container.innerHTML = "";
 
-  // 남은 기회를 보여주는 텍스트를 만든다.
   const chances = h("div");
   chances.classList.add("chances-text");
-  chances.innerText = `Chances: 7`;
+  chances.innerText = `Chances: ${chancesLeft}`;
 
-  // 남은 시간을 보여준다.
   const timerText = h("div");
   timerText.classList.add("timer-text");
-  timerText.innerText = 59;
+  timerText.innerText = timer;
 
-  // 게임 시작 버튼.
-  // 아직 단어가 로딩중이거나, 게임이 끝나지 않았다면 버튼을 누르지 못하게 한다.
-  // 버튼을 누르면 게임이 시작된다.
   const button = h("button");
   button.classList.add("start-button");
   button.innerText = "START";
-
+  button.addEventListener('click', onClickStart);
+  button.disabled = wordLoading || !isGameEnded(gameStatus);
   container.append(chances, timerText, button);
 };
 
 export function render(state, onClickItem, onClickStart, imageSources) {
-  KeyboardLayout();
-  Word();
-  ButtonBox();
+  KeyboardLayout(onClickItem, state.gameStatus, state.enteredCharacters);
+  Word(state.gameStatus, state.wordArr, state.chancesLeft);
+  ButtonBox(state.wordLoading,
+    state.gameStatus,
+    onClickStart,
+    state.chancesLeft,
+    state.timer
+  );
   HangmanImage(state.chancesLeft, imageSources);
 }
 
